@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+{% block title 'Commandez en ligne' %}
+{% block body %}
+
+        <div class="container" align="center">
+            <h2>Commandes</h2>
+            <div class="row flex">
+                {% for plat in plats %}
+                    <div class="col-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="#"> {{ plat.nom}}</a>
+                                </h5>
+                                <p class="card-text">{{ plat.ingredients }}</p>
+                                <div class="text-primary"> {{ plat.formattedPrice }} €</div>
+                                <a href="{{ path('add-panier', {id: plat.id}) }}" class="btn btn-primary stretched-link"> Ajouter </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="container mt-4">
+                <h2>Panier</h2>
+                {% if items | length > 0 %}
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Plat</th>
+                            <th>Prix</th>
+                            <th>Quantité</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in items %}
+                            <tr>
+                                <td>{{ item.plat.nom }}</td>
+                                <td>{{ item.plat.prix }}</td>
+                                <td>{{ item.quantity }}</td>
+                                <td>{{ item.plat.prix * item.quantity }}</td>
+                                <td>
+                                    <a href="{{ path('remove-panier',{id:item.plat.id}) }}" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="3">Total : </td>
+                            <td>{{ total }} €</td>
+                            <td></td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                {% else %}
+                    <h3>Panier Vide</h3>
+                {% endif %}
+                <a href="{{ path('vider-panier') }}" class="btn btn-danger"> Vider Panier </a>
+            </div>
+        </div>
+        <div align="center">
+            <a href="{{ path('panier') }}" class="btn btn-secondary">Panier </a>
+        </div>
+
+{% endblock %}

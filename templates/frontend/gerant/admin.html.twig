@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block title 'Admin' %}
+{% block body %}
+
+<div class="container" align="center">
+    <h2>Plat</h2>
+    <div class="row flex">
+        {% for plat in plats %}
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="#"> {{ plat.nom}}</a>
+                        </h5>
+                        <p class="card-text">{{ plat.ingredients }}</p>
+                        <div class="text-primary"> {{ plat.formattedPrice }} €</div>
+                        <a href="{{ path('edit-plat', {id: plat.id}) }}" class="btn btn-primary stretched-link"> Editer </a> <a href="{{ path('remove-plat', {id: plat.id}) }}" class="btn btn-danger stretched-link"> Supprimer </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{{ path('add-plat') }}" class="btn btn-secondary">Ajouter un plat</a>
+</div>
+
+{% endblock %}

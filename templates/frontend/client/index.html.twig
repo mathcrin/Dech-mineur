@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block head %}
+
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Friterie D'ech Mineur{% endblock %}</title>
+    {% block stylesheets %}<link REL=STYLESHEET TYPE="text/css" HREF="style.css">{% endblock %}
+{% endblock %}
+{% block body %}
+<!--
+    <h1>
+        D'ech Mineur
+    </h1>
+-->
+    
+    <img src ="images/pancarte.PNG" alt="burger ..." align="center" width="80%"/>
+        <!--
+        <hr width="100%" align="center" size="5" color=#C9035F/>
+        -->
+    <div class="container">
+        <div class="container-onglets">
+            <div class="onglets active" data-anim="1">Accueil</div>
+            <div class="onglets" data-anim="2">Menu</div>
+            <div class="onglets" data-anim="3">Contacts</div>
+            <div class="onglets" data-anim="4">Commandez en ligne</div>
+        </div>
+        <div class="contenu activeContenu" data-anim="1">
+            Accueil
+        </div>
+        <div class="contenu" data-anim="2">
+            Menu
+            <img src ="images/menu1.jpg" alt="burger ..." align="center" width="60%" />
+        </div>
+        <div class="contenu" data-anim="3">
+            Contacts
+        </div>
+
+
+    </div>
+    <!--
+    Accueil &nbsp; | &nbsp; Menu  &nbsp; | &nbsp; Contacts &nbsp; | &nbsp; Commandez en ligne
+    -->
+    <br/>
+    <br/>
+    <script src="app.js"></script>
+{% endblock %}

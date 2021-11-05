@@ -1,3 +1,44 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+
+admin:
+    path: /admin
+    controller: App\Controller\PlatController::index
+
+add-ingredient:
+    path: /add-ingredient
+    controller: App\Controller\IngredientController::add
+
+add-plat:
+    path: /add-plat
+    controller: App\Controller\PlatController::add
+
+edit-plat:
+    path: /edit-plat/{id}
+    controller : App\Controller\PlatController::edit
+
+remove-plat:
+    path: /remove-plat/{id}
+    controller : App\Controller\PlatController::remove
+
+commande:
+    path: /commande
+    controller : App\Controller\CommandeController::index
+
+panier:
+    path: /panier
+    controller : App\Controller\CommandeController::panier
+
+add-panier:
+    path: /panier/add/{id}
+    controller : App\Controller\CommandeController::add
+
+remove-panier :
+    path: /panier/remove/{id}
+    controller : App\Controller\CommandeController::remove
+
+vider-panier:
+    path: /panier/clear
+    controller : App\Controller\CommandeController::clearPanier
+
